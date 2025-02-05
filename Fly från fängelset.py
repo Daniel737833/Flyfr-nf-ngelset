@@ -1,5 +1,11 @@
 import random
 
+def intro():
+    print("Välkommen till 'Fly från fängelset'!")
+    print("Du är inlåst och måste hitta en väg ut.")
+    print("Gör val för att lyckas fly. \n")
+
+
 def meny():
     while True:
         print("Huvudmeny:")
@@ -14,12 +20,6 @@ def meny():
             exit()
         else:
             print("Ogiltigt val, försök igen.")
-
-
-def intro():
-    print("Välkommen till 'Fly från fängelset'!")
-    print("Du är inlåst och måste hitta en väg ut.")
-    print("Gör val för att lyckas fly. \n")
 
 
 def rum_1():
@@ -128,4 +128,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    meny()
