@@ -6,20 +6,62 @@ def intro():
     print("Gör val för att lyckas fly. \n")
 
 
+def visa_instruktioner():
+    while True:
+        print("\nInstruktioner:")
+        print("- Du kommer att ställas inför olika val i varje rum.")
+        print("- Välj rätt alternativ för att avancera i spelet.")
+        print("- Om du gör fel kan du behöva försöka igen eller starta om.\n")
+        print("Tryck [B] för att gå tillbaka till huvudmenyn.")
+        val = input("> ").lower()
+        if val == "b":
+            return
+
+
 def meny():
     while True:
-        print("Huvudmeny:")
-        print("1. Starta spelet")
-        print("2. Avsluta")
+        print("\nHuvudmeny:")
+        print("1. Starta nytt spel")
+        print("2. Välj svårighetsgrad")
+        print("3. Visa instruktioner")
+        print("4. Avsluta")
+        print("Vad vill du göra:")
         val = input("> ")
+        
         if val == "1":
             main()
             break
         elif val == "2":
+            valj_svarighetsgrad()
+        elif val == "3":
+            visa_instruktioner()
+        elif val == "4":
             print("Spelet avslutas.")
             exit()
         else:
             print("Ogiltigt val, försök igen.")
+
+
+def valj_svarighetsgrad():
+    global svårighetsgrad
+    print("\nVälj svårighetsgrad:")
+    print("1. Lätt")
+    print("2. Normal")
+    print("3. Svår")
+    val = input("> ")
+    
+    if val == "1":
+        svårighetsgrad = "Lätt"
+        print("Svårighetsgrad inställd på Lätt.\n")
+    elif val == "2":
+        svårighetsgrad = "Normal"
+        print("Svårighetsgrad inställd på Normal.\n")
+    elif val == "3":
+        svårighetsgrad = "Svår"
+        print("Svårighetsgrad inställd på Svår.\n")
+    else:
+        print("Ogiltigt val, försöker igen.")
+        valj_svarighetsgrad()
 
 
 def rum_1():
@@ -128,4 +170,5 @@ def main():
 
 
 if __name__ == "__main__":
+    svårighetsgrad = "Normal"
     meny()
