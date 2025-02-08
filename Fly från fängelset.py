@@ -8,10 +8,37 @@ def intro():
 
 def visa_instruktioner():
     while True:
-        print("\nInstruktioner:")
-        print("- Du kommer att ställas inför olika val i varje rum.")
-        print("- Välj rätt alternativ för att avancera i spelet.")
-        print("- Om du gör fel kan du behöva försöka igen eller starta om.\n")
+        print("\nFly från fängelset - En textbaserad äventyrsspel")
+        print("\nBeskrivning:")
+        print("'Fly från fängelset' är ett textbaserat äventyrsspel där du spelar som en fånge som försöker rymma.")
+        print("Genom att navigera genom olika rum och göra rätt val kan du lyckas ta dig ut.")
+        print("Spelet innehåller olika utmaningar, inklusive ett bossrum där du måste besegra en vaktchef för att vinna.\n")
+        
+        print("Hur man spelar")
+        print("--------------")
+        print("Spelaren måste göra val för att ta sig vidare genom olika rum.")
+        print("I huvudmenyn kan du välja att starta ett nytt spel, ändra svårighetsgrad,")
+        print("visa instruktioner eller avsluta spelet.")
+        print("I varje rum ges spelaren ett antal alternativ att välja mellan.")
+        print("Om spelaren gör rätt val, går de vidare till nästa rum.")
+        print("Om spelaren gör ett felaktigt val, måste de försöka igen tills rätt val görs.")
+        print("I det sista rummet möter du en boss som du måste besegra i en strid.\n")
+        
+        print("Kontroller")
+        print("----------")
+        print("Använd nummer för att göra val i spelet, exempelvis '1' eller '2'.\n")
+        
+        print("Svårighetsgrader")
+        print("---------------")
+        print("Lätt – För en enklare spelupplevelse.")
+        print("Normal – Balanserad svårighetsgrad.")
+        print("Svår – Utmanande, där val och strategier är avgörande.\n")
+        
+        print("Avsluta spelet")
+        print("--------------")
+        print("Vill du inte spela längre så kan du när som helst skriva 'SLUTA',")
+        print("vilket tar dig tillbaka till huvudmenyn.\n")
+        
         print("Tryck [B] för att gå tillbaka till huvudmenyn.")
         val = input("> ").lower()
         if val == "b":
@@ -47,8 +74,11 @@ def valj_svarighetsgrad():
     print("\nVälj svårighetsgrad:")
     print("1. Lätt")
     print("2. Normal")
-    print("3. Svår")
+    print("3. Svår\n")
+    print("Tryck [B] för att gå tillbaka till huvudmenyn.")
     val = input("> ")
+    if val == "b":
+            return
     
     if val == "1":
         svårighetsgrad = "Lätt"
@@ -151,6 +181,42 @@ def rum_6():
         print("Du hittar ingen annan väg. Försök igen.")
         return False
 
+def rum_7():
+    print("\nRum 7: Bossrummet")
+    print("Du har nästan lyckats fly, men en vaktchef står i vägen!")
+    boss_hp = 30
+    player_hp = 25
+    while boss_hp > 0 and player_hp > 0:
+        print(f"\nDitt HP: {player_hp} | Bossens HP: {boss_hp}")
+        print("1. Slå med näven (5 skada)")
+        print("2. Specialattack (10 skada, 50% chans att missa)")
+        val = input("> ")
+        if val == "1":
+            boss_hp -= 5
+            print("Du träffar bossen!")
+        elif val == "2":
+            if random.random() > 0.5:
+                boss_hp -= 10
+                print("Din specialattack träffar hårt!")
+            else:
+                print("Din attack missar!")
+        else:
+            print("Ogiltigt val, försök igen.")
+            continue
+        
+        if boss_hp > 0:
+            skada = random.randint(3, 7)
+            player_hp -= skada
+            print(f"Bossen attackerar dig och gör {skada} skada!")
+    
+    if player_hp <= 0:
+        print("Bossen besegrar dig! Du skickas tillbaka till din cell.")
+        main()
+        return False
+    else:
+        print("Du besegrar bossen och flyr! Du är fri!")
+        return True
+
 
 def main():
     intro()
@@ -165,6 +231,8 @@ def main():
     while not rum_5():
         pass
     while not rum_6():
+        pass
+    while not rum_7():
         pass
     print("\nGrattis! Du har lyckats fly!")
 
