@@ -38,5 +38,5 @@ Vill du inte spela längre så kan du när som helst skirva "SLUTA" ,
 vilket tar dig tillbaka till huvudmenyn.
 
 # Rumbeskirva alla rum bättre
-# lägg till rum 7. och ha 4 extra utmaningar
+# lägg till ha 4 extra utmaningar
 # lägg till prestationer

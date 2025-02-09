@@ -96,89 +96,116 @@ def valj_svarighetsgrad():
 
 def rum_1():
     print("Rum 1: Din cell")
+    print("Du vaknar i en mörk, kall cell. Stenväggarna är kalla och en liten spricka i dörren släpper in ett svagt ljus.")
+    print("Du ser ett rostigt dörr hantag i hörnet. På golvet finns en matbricka med möglig mat")
     print("Dörren är låst. Vad gör du?")
     print("1. Leta efter en nyckel")
     print("2. Ropa på hjälp")
     val = input("> ")
     if val == "1":
-        print("Du hittar en nyckel!")
+        print("Du rotar runt på golvet och under matbrickan hittar du en rostig nyckel!")
         return True
     else:
-        print("Inget händer. Försök igen.")
+        print("Dina rop ekar genom cellen, men ingen svarar.")
+        print("Istället kommer det in en vakt som börjar slå dig med en batong.")
+        print("Därefter smäller han dörren bakom sig och stänger in dig igen i cellen. Försök igen")
         return False
 
-
 def rum_2():
+    print("Du smyger ut ur cellen och befinner dig i ett svagt upplyst korridor.")
+    print("Golvets betong är kall under dina fötter, och du hör fotsteg.")
+    print("Du ser en vakt som står vid dörren längre fram, vänd bort från dig.")
     print("\nRum 2: Korridoren")
-    print("En vakt står vid dörren.")
+    print("Vad vill du göra?")
     print("1. Smyga förbi")
     print("2. Distrahera vakten")
     val = input("> ")
     if val == "2":
-        print("Vakten blir distraherad, du smyger förbi!")
+        print("Du kastar en sten mot väggen längre bort. Vakten vänder sig om för att undersöka, och du smyger snabbt förbi!")
         return True
     elif val == "1":
-        print("Vakten ser dig! Du blir tillbakaskickad till din cell.")
+        print("Du försöker smyga förbi, men vakten hör dina steg och griper dig! Du förs tillbaka till din cell.")
         main()
         return False
     else:
         print("Vakten ser dig. Försök igen.")
         return False
 
-
 def rum_3():
+    print("Du kommer in i ett stort rum där flera fångar sitter och viskar till varandra.")
+    print("En fånge signalerar åt dig med handen att komma närmare.")
     print("\nRum 3: Fångarnas samlingsrum")
-    print("Här finns en annan fånge som kan hjälpa dig.")
+    print("Vad vill du göra?")
     print("1. Prata med fången")
     print("2. Försök ta en annan väg")
     val = input("> ")
     if val == "1":
-        print("Fången ger dig en viktig kod till nästa dörr!")
-        return True
+        kod = random.randint(1000, 9999)
+        print(f"Fången ser sig omkring och viskar: 'Jag har sett koden till förvaringsrummet. Den är {kod}.')")
+        while True:
+            kod_input = input("Ange koden för att gå vidare: ")
+            if kod_input == str(kod):
+                print("Rätt kod! Du får passera.")
+                return True
+            else:
+                print("Fel kod, försök igen.")
     else:
-        print("Du hittar ingen annan väg. Försök igen.")
+        print("Du försöker hitta en annan väg, men rummet har bara en utgång. Försök igen.")
         return False
 
 
 def rum_4():
-    print("\nRum 4: Förvaringsrummet")
-    print("Här finns en låst dörr med en kodlås.")
-    print("1. Försök knäcka koden")
-    print("2. Leta efter något som kan hjälpa dig")
+    print("Du smyger in i ett stökigt kontor, fullt av papper och mappar som ligger huller om buller.")
+    print("Den enda vägen vidare är en låst dörr med ett kodlås.")
+    print("Någonstans här inne bland alla papper och mappar finnas en kod som kan hjälpa dig.")
+    print("\nRum 4: Kontorrummet")
+    print("Vad vill du göra?")
+    print("1. Försök gissa koden")
+    print("2. Rota igenom alla papper och mappar")
     val = input("> ")
     if val == "2":
-        print("Du hittar en lapp med koden och öppnar dörren!")
+        print("Du rotar igenom alla papper och mappar och hittar en kod.")
+        print("Du använder koden för att låsa upp dörren och du smyger vidare!")
         return True
     else:
-        print("Koden fungerar inte. Försök igen.")
+        print("Du försöker gissa koden men misslyckas, försök igen.")
         return False
 
 
 def rum_5():
+    print("Du kommer in i en smal, mörk korridor där röda laserstrålar skär genom luften i olika mönster.")
+    print("Väggarna är täckta av metall, och golvet har skrapmärken från tidigare försök att ta sig igenom.")
+    print("Du börjar att inse ett felaktigt steg kan aktivera ett larm eller något ännu värre.")
     print("\nRum 5: Laserfällan")
-    print("Du står inför en korridor fylld med laserstrålar.")
+    print("Vad vill du göra?")
     print("1. Försök krypa under lasrarna")
     print("2. Leta efter en avstängningsknapp")
     val = input("> ")
     if val == "2":
-        print("Du hittar knappen och stänger av lasrarna!")
+        print("Du undersöker väggarna och ser en liten panel med kablar, där du hittar en knapp.")
+        print("Du trycker försiktigt på knappen och hör ett ljud där lasrarna långsamt börjar slockna.")
         return True
     else:
-        print("Lasrarna träffar dig! Försök igen.")
+        print("Du försöker krypa under lasrarna, men en av strålarna träffar din arm och en högljudd siren går igång!")
+        print("Försök igen.")
         return False
 
 
 def rum_6():
-    print("\nRum 6: Utgången")
-    print("En låst dörr leder ut.")
-    print("1. Använd nyckeln")
-    print("2. Leta efter en annan väg")
+    print("Du smyger in i ett mörkt rum fyllt med skärmar som övervakar hela fängelset.")
+    print("På ett bord ligger en terminal med ett kortläsarsystem som låser upp nästa dörr.")
+    print("Men var är nyckelkortet?")
+    print("\nRum 6: Övervakningsrummet")
+    print("Vad vill du göra?")
+    print("1. Leta i skrivbordslådorna")
+    print("2. Försök att slå dig igenom dörren")
     val = input("> ")
     if val == "1":
-        print("Dörren öppnas, du är fri!")
+        print("Du öppnar skrivbordslådorna och hittar ett nyckelkort!")
+        print("Du använder kortet på terminalen och dörren låses upp.")
         return True
     else:
-        print("Du hittar ingen annan väg. Försök igen.")
+        print("Du försöker bryta upp dörren men misslyckas. Försök igen.")
         return False
 
 def rum_7():
